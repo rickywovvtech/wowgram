@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @wow.description %>
+</p>
+
+
+<p>
+  <strong>Picture:</strong>
+  <% if @wow.picture.present? %>
+      <td><%= image_tag(@wow.picture.url,size:'210') %></td>
+  <%end%>
+</p>

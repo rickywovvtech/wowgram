@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wows.each do |wow| %>
+      <tr>
+        <td><%= link_to "#{User.find(wow.user_id).name}",userpost_wows_path(wow.user_id)%></td>
+        <td><%= wow.description %></td>
+        <% if wow.picture.present? %>
+           <td><%= image_tag(wow.picture.url,size:'210') %></td>
+        <%end%>
+        <td><%= link_to 'Show', wow %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
