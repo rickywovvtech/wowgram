@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<%= form_for all_post_wows_path, method: :get do |f| %>
+    <%= text_field_tag :q , params[:q]%>
+    <%= submit_tag 'Go'%>
+    <%end%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wows.each do |wow| %>
+      <tr>
+        <td><%= link_to "#{User.find(wow.user_id).name}",userpost_wows_path(wow.user_id)%></td>
+        <td><%= wow.description %></td>
+        <% if wow.picture.present? %>
+           <td><%= image_tag(wow.picture.url,size:'210') %></td>
+        <%end%>
+        <td><%= link_to 'Show', wow %></td>
+        <td><%= link_to 'AddComment',comment_wows_path(wow.id)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
