@@ -23,4 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* when run rake db:seed  then email='example@gmail.com' and password=>'password' will generate
+
 
